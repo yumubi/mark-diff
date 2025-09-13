@@ -2,217 +2,218 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Markdown Diff Highlighter Design System */
+/* ... root variables and base styles are correct ... */
 
 @layer base {
-  :root {
-    /* Core Colors - Dark Theme (Default) */
-    --bg-primary: 0 0% 2%;
-    --bg-secondary: 0 0% 4%; 
-    --bg-tertiary: 0 0% 6%;
-    --bg-card: 0 0% 8%;
-    --bg-hover: 0 0% 12%;
-    --bg-accent: 0 0% 95%;
+    /* ... :root, [data-theme="light"], *, body, .font-display, .font-mono ... */
+    /* 这些基础样式保持不变 */
+    :root {
+        /* Core Colors - Dark Theme (Default) */
+        --bg-primary: 0 0% 2%;
+        --bg-secondary: 0 0% 4%;
+        --bg-tertiary: 0 0% 6%;
+        --bg-card: 0 0% 8%;
+        --bg-hover: 0 0% 12%;
+        --bg-accent: 0 0% 95%;
 
-    --border-primary: 0 0% 15%;
-    --border-secondary: 0 0% 20%;
-    --border-accent: 0 0% 25%;
+        --border-primary: 0 0% 15%;
+        --border-secondary: 0 0% 20%;
+        --border-accent: 0 0% 25%;
 
-    --text-primary: 0 0% 98%;
-    --text-secondary: 0 0% 70%;
-    --text-muted: 0 0% 50%;
-    --text-inverse: 0 0% 2%;
+        --text-primary: 0 0% 98%;
+        --text-secondary: 0 0% 70%;
+        --text-muted: 0 0% 50%;
+        --text-inverse: 0 0% 2%;
 
-    /* Diff Colors - Enhanced visibility */
-    --diff-added: 142 71% 45%;
-    --diff-added-bg: 142 71% 45% / 0.15;
-    --diff-added-border: 142 71% 45% / 0.5;
-    
-    --diff-removed: 0 70% 55%;
-    --diff-removed-bg: 0 70% 55% / 0.15;
-    --diff-removed-border: 0 70% 55% / 0.5;
-    
-    --diff-modified: 45 93% 47%;
-    --diff-modified-bg: 45 93% 47% / 0.15;
-    --diff-modified-border: 45 93% 47% / 0.5;
+        /* Diff Colors - Enhanced visibility */
+        --diff-added: 142 71% 45%;
+        --diff-added-bg: 142 71% 45% / 0.15;
+        --diff-added-border: 142 71% 45% / 0.5;
 
-    /* Animations */
-    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        --diff-removed: 0 70% 55%;
+        --diff-removed-bg: 0 70% 55% / 0.15;
+        --diff-removed-border: 0 70% 55% / 0.5;
 
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
-    --shadow-diff: 0 2px 8px hsl(0 0% 0% / 0.15);
+        --diff-modified: 45 93% 47%;
+        --diff-modified-bg: 45 93% 47% / 0.15;
+        --diff-modified-border: 45 93% 47% / 0.5;
 
-    /* Base Design System */
-    --background: var(--bg-primary);
-    --foreground: var(--text-primary);
-    --card: var(--bg-card);
-    --card-foreground: var(--text-primary);
-    --popover: var(--bg-card);
-    --popover-foreground: var(--text-primary);
-    --primary: var(--text-primary);
-    --primary-foreground: var(--text-inverse);
-    --secondary: var(--bg-tertiary);
-    --secondary-foreground: var(--text-primary);
-    --muted: var(--bg-tertiary);
-    --muted-foreground: var(--text-muted);
-    --accent: var(--bg-hover);
-    --accent-foreground: var(--text-primary);
-    --destructive: var(--diff-removed);
-    --destructive-foreground: var(--text-primary);
-    --border: var(--border-primary);
-    --input: var(--bg-tertiary);
-    --ring: var(--border-accent);
-    --radius: 0.75rem;
-  }
+        /* Animations */
+        --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-  [data-theme="light"] {
-    /* Light Theme */
-    --bg-primary: 0 0% 100%;
-    --bg-secondary: 0 0% 98%;
-    --bg-tertiary: 0 0% 96%;
-    --bg-card: 0 0% 100%;
-    --bg-hover: 0 0% 96%;
-    --bg-accent: 0 0% 4%;
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+        --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+        --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+        --shadow-diff: 0 2px 8px hsl(0 0% 0% / 0.15);
 
-    --border-primary: 0 0% 90%;
-    --border-secondary: 0 0% 85%;
-    --border-accent: 0 0% 70%;
+        /* Base Design System */
+        --background: var(--bg-primary);
+        --foreground: var(--text-primary);
+        --card: var(--bg-card);
+        --card-foreground: var(--text-primary);
+        --popover: var(--bg-card);
+        --popover-foreground: var(--text-primary);
+        --primary: var(--text-primary);
+        --primary-foreground: var(--text-inverse);
+        --secondary: var(--bg-tertiary);
+        --secondary-foreground: var(--text-primary);
+        --muted: var(--bg-tertiary);
+        --muted-foreground: var(--text-muted);
+        --accent: var(--bg-hover);
+        --accent-foreground: var(--text-primary);
+        --destructive: var(--diff-removed);
+        --destructive-foreground: var(--text-primary);
+        --border: var(--border-primary);
+        --input: var(--bg-tertiary);
+        --ring: var(--border-accent);
+        --radius: 0.75rem;
+    }
 
-    --text-primary: 0 0% 4%;
-    --text-secondary: 0 0% 30%;
-    --text-muted: 0 0% 50%;
-    --text-inverse: 0 0% 98%;
+    [data-theme="light"] {
+        /* Light Theme */
+        --bg-primary: 0 0% 100%;
+        --bg-secondary: 0 0% 98%;
+        --bg-tertiary: 0 0% 96%;
+        --bg-card: 0 0% 100%;
+        --bg-hover: 0 0% 96%;
+        --bg-accent: 0 0% 4%;
 
-    --diff-added: 142 84% 24%;
-    --diff-removed: 0 72% 51%;
-    --diff-modified: 45 93% 47%;
+        --border-primary: 0 0% 90%;
+        --border-secondary: 0 0% 85%;
+        --border-accent: 0 0% 70%;
 
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
-    --shadow-diff: 0 2px 8px hsl(0 0% 0% / 0.1);
-  }
+        --text-primary: 0 0% 4%;
+        --text-secondary: 0 0% 30%;
+        --text-muted: 0 0% 50%;
+        --text-inverse: 0 0% 98%;
 
-  * {
-    @apply border-border;
-  }
+        --diff-added: 142 84% 24%;
+        --diff-removed: 0 72% 51%;
+        --diff-modified: 45 93% 47%;
 
-  body {
-    @apply bg-background text-foreground font-mono leading-relaxed;
-    font-feature-settings: "liga" 1, "calt" 1;
-  }
+        --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+        --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+        --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+        --shadow-diff: 0 2px 8px hsl(0 0% 0% / 0.1);
+    }
 
-  /* Custom Typography */
-  .font-display {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.025em;
-  }
+    * {
+        @apply border-border;
+    }
 
-  .font-mono {
-    font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
-  }
+    body {
+        @apply bg-background text-foreground font-mono leading-relaxed;
+        font-feature-settings: "liga" 1, "calt" 1;
+    }
+
+    /* Custom Typography */
+    .font-display {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+    }
+
+    .font-mono {
+        font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
+    }
 }
 
 @layer components {
-  /* Card Components */
-  .card {
-    @apply bg-card border border-border rounded-xl shadow-sm transition-all duration-200;
-  }
+    /* ... Card, Button, Input 等组件样式保持不变 ... */
+    .card {
+        @apply bg-card border border-border rounded-xl shadow-sm transition-all duration-200;
+    }
 
-  .card-hover {
-    @apply hover:border-accent hover:shadow-md;
-  }
+    .card-hover {
+        @apply hover:border-accent hover:shadow-md;
+    }
 
-  /* Button Components */
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
-  }
+    /* Button Components */
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+    }
 
-  .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm;
-  }
+    .btn-primary {
+        @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm;
+    }
 
-  .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border;
-  }
+    .btn-secondary {
+        @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border;
+    }
 
-  .btn-ghost {
-    @apply text-foreground hover:bg-accent hover:text-accent-foreground;
-  }
+    .btn-ghost {
+        @apply text-foreground hover:bg-accent hover:text-accent-foreground;
+    }
 
-  /* Input Components */
-  .input {
-    @apply flex w-full rounded-lg border border-border bg-input px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200;
-  }
+    /* Input Components */
+    .input {
+        @apply flex w-full rounded-lg border border-border bg-input px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200;
+    }
 
-  /* Diff Highlight Components */
-  .diff-highlight {
-    @apply relative inline-block rounded-md px-2 py-1 mx-0.5 transition-all duration-200 hover:scale-105 hover:shadow-md cursor-pointer;
-  }
+    /*
+      全新的行内高亮样式
+      我们直接为 <ins> (insertion) 和 <del> (deletion) 标签定义样式
+    */
+    ins {
+        @apply bg-[hsl(var(--diff-added-bg))] text-[hsl(var(--diff-added))] rounded px-1 py-0.5 no-underline cursor-pointer;
+    }
 
-  .diff-added {
-    @apply bg-[hsl(var(--diff-added-bg))] border-l-4 border-[hsl(var(--diff-added))] text-[hsl(var(--diff-added))] font-medium;
-  }
+    del {
+        @apply bg-[hsl(var(--diff-removed-bg))] text-[hsl(var(--diff-removed))] rounded px-1 py-0.5 cursor-pointer;
+    }
 
-  .diff-removed {
-    @apply bg-[hsl(var(--diff-removed-bg))] border-l-4 border-[hsl(var(--diff-removed))] text-[hsl(var(--diff-removed))] line-through opacity-85 font-medium;
-  }
+    /*
+      !! 删除所有旧的、块级的 .diff-highlight-block 和相关样式 !!
+    */
 
-  .diff-modified {
-    @apply bg-[hsl(var(--diff-modified-bg))] border-l-4 border-[hsl(var(--diff-modified))] text-[hsl(var(--diff-modified))] font-medium;
-  }
+    /* ... Control Panel, Tooltip, Loading, Grid 等其他样式保持不变 ... */
+    .diff-controls {
+        @apply fixed top-4 right-4 z-50 bg-card border border-border rounded-xl p-4 shadow-lg;
+        min-width: 16rem;
+    }
 
-  /* Control Panel */
-  .diff-controls {
-    @apply fixed top-4 right-4 z-50 bg-card border border-border rounded-xl p-4 shadow-lg;
-    min-width: 16rem;
-  }
+    .diff-toggle {
+        @apply flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg border border-border hover:bg-accent transition-all duration-200 cursor-pointer;
+    }
 
-  .diff-toggle {
-    @apply flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg border border-border hover:bg-accent transition-all duration-200 cursor-pointer;
-  }
+    .diff-toggle.active {
+        @apply bg-accent text-accent-foreground border-accent;
+    }
 
-  .diff-toggle.active {
-    @apply bg-accent text-accent-foreground border-accent;
-  }
+    .diff-indicator {
+        @apply w-3 h-3 rounded-full;
+    }
 
-  .diff-indicator {
-    @apply w-3 h-3 rounded-full;
-  }
+    .diff-added-indicator {
+        @apply bg-[hsl(var(--diff-added))];
+    }
 
-  .diff-added-indicator {
-    @apply bg-[hsl(var(--diff-added))];
-  }
+    .diff-removed-indicator {
+        @apply bg-[hsl(var(--diff-removed))];
+    }
 
-  .diff-removed-indicator {
-    @apply bg-[hsl(var(--diff-removed))];
-  }
+    .diff-modified-indicator {
+        @apply bg-[hsl(var(--diff-modified))];
+    }
 
-  .diff-modified-indicator {
-    @apply bg-[hsl(var(--diff-modified))];
-  }
+    /* Tooltip */
+    .diff-tooltip {
+        @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-background border border-border rounded-md shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap z-50;
+    }
 
-  /* Tooltip */
-  .diff-tooltip {
-    @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-background border border-border rounded-md shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap z-50;
-  }
+    [data-diff-segment]:hover .diff-tooltip {
+        @apply opacity-100;
+    }
 
-  .diff-highlight:hover .diff-tooltip {
-    @apply opacity-100;
-  }
+    /* Loading States */
+    .loading-spinner {
+        @apply w-4 h-4 border-2 border-border border-t-foreground rounded-full animate-spin;
+    }
 
-  /* Loading States */
-  .loading-spinner {
-    @apply w-4 h-4 border-2 border-border border-t-foreground rounded-full animate-spin;
-  }
-
-  /* Responsive Grid */
-  .diff-grid {
-    @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
-  }
+    /* Responsive Grid */
+    .diff-grid {
+        @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+    }
 }
