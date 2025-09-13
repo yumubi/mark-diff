@@ -125,7 +125,7 @@
   }
 
   .card-hover {
-    @apply hover:border-border-secondary hover:shadow-md;
+    @apply hover:border-accent hover:shadow-md;
   }
 
   /* Button Components */
@@ -169,11 +169,12 @@
 
   /* Control Panel */
   .diff-controls {
-    @apply fixed top-4 right-4 z-50 bg-card border border-border rounded-xl p-4 shadow-lg min-w-64;
+    @apply fixed top-4 right-4 z-50 bg-card border border-border rounded-xl p-4 shadow-lg;
+    min-width: 16rem;
   }
 
   .diff-toggle {
-    @apply flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg border border-border hover:bg-hover transition-all duration-200 cursor-pointer;
+    @apply flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg border border-border hover:bg-accent transition-all duration-200 cursor-pointer;
   }
 
   .diff-toggle.active {
