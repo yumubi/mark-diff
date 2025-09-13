@@ -5,11 +5,18 @@ import "./index.css";
 // Initialize MSW in development
 async function enableMocking() {
   if (import.meta.env.DEV) {
-    const { worker } = await import('./mocks/browser');
-    await worker.start({
-      onUnhandledRequest: 'bypass',
-    });
-    console.log('🔶 MSW enabled');
+    try {
+      const { worker } = await import('./mocks/browser');
+      await worker.start({
+        onUnhandledRequest: 'bypass',
+        serviceWorker: {
+          url: '/mockServiceWorker.js'
+        }
+      });
+      console.log('🔶 MSW enabled');
+    } catch (error) {
+      console.warn('🔶 MSW failed to start:', error);
+    }
   }
 }
 
