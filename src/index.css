@@ -23,18 +23,18 @@
     --text-muted: 0 0% 50%;
     --text-inverse: 0 0% 2%;
 
-    /* Diff Colors */
-    --diff-added: 142 76% 36%;
-    --diff-added-bg: 142 76% 36% / 0.1;
-    --diff-added-border: 142 76% 36% / 0.3;
+    /* Diff Colors - Enhanced visibility */
+    --diff-added: 142 71% 45%;
+    --diff-added-bg: 142 71% 45% / 0.15;
+    --diff-added-border: 142 71% 45% / 0.5;
     
-    --diff-removed: 0 84% 60%;
-    --diff-removed-bg: 0 84% 60% / 0.1;
-    --diff-removed-border: 0 84% 60% / 0.3;
+    --diff-removed: 0 70% 55%;
+    --diff-removed-bg: 0 70% 55% / 0.15;
+    --diff-removed-border: 0 70% 55% / 0.5;
     
-    --diff-modified: 48 96% 53%;
-    --diff-modified-bg: 48 96% 53% / 0.1;
-    --diff-modified-border: 48 96% 53% / 0.3;
+    --diff-modified: 45 93% 47%;
+    --diff-modified-bg: 45 93% 47% / 0.15;
+    --diff-modified-border: 45 93% 47% / 0.5;
 
     /* Animations */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -156,15 +156,15 @@
   }
 
   .diff-added {
-    @apply bg-[hsl(var(--diff-added-bg))] border-l-2 border-[hsl(var(--diff-added))] text-[hsl(var(--diff-added))];
+    @apply bg-[hsl(var(--diff-added-bg))] border-l-4 border-[hsl(var(--diff-added))] text-[hsl(var(--diff-added))] font-medium;
   }
 
   .diff-removed {
-    @apply bg-[hsl(var(--diff-removed-bg))] border-l-2 border-[hsl(var(--diff-removed))] text-[hsl(var(--diff-removed))] line-through opacity-80;
+    @apply bg-[hsl(var(--diff-removed-bg))] border-l-4 border-[hsl(var(--diff-removed))] text-[hsl(var(--diff-removed))] line-through opacity-85 font-medium;
   }
 
   .diff-modified {
-    @apply bg-[hsl(var(--diff-modified-bg))] border-l-2 border-[hsl(var(--diff-modified))] text-[hsl(var(--diff-modified))];
+    @apply bg-[hsl(var(--diff-modified-bg))] border-l-4 border-[hsl(var(--diff-modified))] text-[hsl(var(--diff-modified))] font-medium;
   }
 
   /* Control Panel */
