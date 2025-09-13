@@ -2,104 +2,216 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Markdown Diff Highlighter Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Colors - Dark Theme (Default) */
+    --bg-primary: 0 0% 2%;
+    --bg-secondary: 0 0% 4%; 
+    --bg-tertiary: 0 0% 6%;
+    --bg-card: 0 0% 8%;
+    --bg-hover: 0 0% 12%;
+    --bg-accent: 0 0% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --border-primary: 0 0% 15%;
+    --border-secondary: 0 0% 20%;
+    --border-accent: 0 0% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --text-primary: 0 0% 98%;
+    --text-secondary: 0 0% 70%;
+    --text-muted: 0 0% 50%;
+    --text-inverse: 0 0% 2%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Diff Colors */
+    --diff-added: 142 76% 36%;
+    --diff-added-bg: 142 76% 36% / 0.1;
+    --diff-added-border: 142 76% 36% / 0.3;
+    
+    --diff-removed: 0 84% 60%;
+    --diff-removed-bg: 0 84% 60% / 0.1;
+    --diff-removed-border: 0 84% 60% / 0.3;
+    
+    --diff-modified: 48 96% 53%;
+    --diff-modified-bg: 48 96% 53% / 0.1;
+    --diff-modified-border: 48 96% 53% / 0.3;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Animations */
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+    --shadow-diff: 0 2px 8px hsl(0 0% 0% / 0.15);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Base Design System */
+    --background: var(--bg-primary);
+    --foreground: var(--text-primary);
+    --card: var(--bg-card);
+    --card-foreground: var(--text-primary);
+    --popover: var(--bg-card);
+    --popover-foreground: var(--text-primary);
+    --primary: var(--text-primary);
+    --primary-foreground: var(--text-inverse);
+    --secondary: var(--bg-tertiary);
+    --secondary-foreground: var(--text-primary);
+    --muted: var(--bg-tertiary);
+    --muted-foreground: var(--text-muted);
+    --accent: var(--bg-hover);
+    --accent-foreground: var(--text-primary);
+    --destructive: var(--diff-removed);
+    --destructive-foreground: var(--text-primary);
+    --border: var(--border-primary);
+    --input: var(--bg-tertiary);
+    --ring: var(--border-accent);
+    --radius: 0.75rem;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  [data-theme="light"] {
+    /* Light Theme */
+    --bg-primary: 0 0% 100%;
+    --bg-secondary: 0 0% 98%;
+    --bg-tertiary: 0 0% 96%;
+    --bg-card: 0 0% 100%;
+    --bg-hover: 0 0% 96%;
+    --bg-accent: 0 0% 4%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --border-primary: 0 0% 90%;
+    --border-secondary: 0 0% 85%;
+    --border-accent: 0 0% 70%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --text-primary: 0 0% 4%;
+    --text-secondary: 0 0% 30%;
+    --text-muted: 0 0% 50%;
+    --text-inverse: 0 0% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --diff-added: 142 84% 24%;
+    --diff-removed: 0 72% 51%;
+    --diff-modified: 45 93% 47%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+    --shadow-diff: 0 2px 8px hsl(0 0% 0% / 0.1);
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-mono leading-relaxed;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+
+  /* Custom Typography */
+  .font-display {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .font-mono {
+    font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
+  }
+}
+
+@layer components {
+  /* Card Components */
+  .card {
+    @apply bg-card border border-border rounded-xl shadow-sm transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply hover:border-border-secondary hover:shadow-md;
+  }
+
+  /* Button Components */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border;
+  }
+
+  .btn-ghost {
+    @apply text-foreground hover:bg-accent hover:text-accent-foreground;
+  }
+
+  /* Input Components */
+  .input {
+    @apply flex w-full rounded-lg border border-border bg-input px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200;
+  }
+
+  /* Diff Highlight Components */
+  .diff-highlight {
+    @apply relative inline-block rounded-md px-2 py-1 mx-0.5 transition-all duration-200 hover:scale-105 hover:shadow-md cursor-pointer;
+  }
+
+  .diff-added {
+    @apply bg-[hsl(var(--diff-added-bg))] border-l-2 border-[hsl(var(--diff-added))] text-[hsl(var(--diff-added))];
+  }
+
+  .diff-removed {
+    @apply bg-[hsl(var(--diff-removed-bg))] border-l-2 border-[hsl(var(--diff-removed))] text-[hsl(var(--diff-removed))] line-through opacity-80;
+  }
+
+  .diff-modified {
+    @apply bg-[hsl(var(--diff-modified-bg))] border-l-2 border-[hsl(var(--diff-modified))] text-[hsl(var(--diff-modified))];
+  }
+
+  /* Control Panel */
+  .diff-controls {
+    @apply fixed top-4 right-4 z-50 bg-card border border-border rounded-xl p-4 shadow-lg min-w-64;
+  }
+
+  .diff-toggle {
+    @apply flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg border border-border hover:bg-hover transition-all duration-200 cursor-pointer;
+  }
+
+  .diff-toggle.active {
+    @apply bg-accent text-accent-foreground border-accent;
+  }
+
+  .diff-indicator {
+    @apply w-3 h-3 rounded-full;
+  }
+
+  .diff-added-indicator {
+    @apply bg-[hsl(var(--diff-added))];
+  }
+
+  .diff-removed-indicator {
+    @apply bg-[hsl(var(--diff-removed))];
+  }
+
+  .diff-modified-indicator {
+    @apply bg-[hsl(var(--diff-modified))];
+  }
+
+  /* Tooltip */
+  .diff-tooltip {
+    @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-background border border-border rounded-md shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap z-50;
+  }
+
+  .diff-highlight:hover .diff-tooltip {
+    @apply opacity-100;
+  }
+
+  /* Loading States */
+  .loading-spinner {
+    @apply w-4 h-4 border-2 border-border border-t-foreground rounded-full animate-spin;
+  }
+
+  /* Responsive Grid */
+  .diff-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
   }
 }

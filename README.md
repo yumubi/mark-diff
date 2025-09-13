@@ -1,73 +1,175 @@
-# Welcome to your Lovable project
+# Markdown Diff 高亮器
 
-## Project info
+> 无侵入式的文档变更可视化工具
 
-**URL**: https://lovable.dev/projects/2c43caa7-3c27-4bc0-8faa-5850fac45851
+## 🚀 项目介绍
 
-## How can I edit this code?
+Markdown Diff 高亮器是一个现代化的Web应用，用于可视化Markdown文档的变更。它基于Git提交自动检测文档差异，并在Web界面中以直观的方式展示新增、删除、修改的内容。
 
-There are several ways of editing your application.
+### ✨ 核心特性
 
-**Use Lovable**
+- **🔍 无侵入式检测** - 不修改源文档，基于Git diff自动生成高亮信息
+- **🎨 可视化展示** - 直观的颜色标识和交互式控制面板
+- **📱 响应式设计** - 支持桌面端和移动端的完美展示
+- **🌓 主题支持** - 深色/浅色主题自动切换
+- **⚡ 高性能** - 基于React 18和Vite 5构建，快速响应
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2c43caa7-3c27-4bc0-8faa-5850fac45851) and start prompting.
+### 🛠️ 技术栈
 
-Changes made via Lovable will be committed automatically to this repo.
+- **前端框架**: React 18 + TypeScript 5
+- **构建工具**: Vite 5
+- **样式系统**: Tailwind CSS v3
+- **状态管理**: Zustand + Immer
+- **数据获取**: TanStack Query v5
+- **路由**: React Router v6
+- **Mock数据**: MSW v2
 
-**Use your preferred IDE**
+## 📦 安装和使用
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 环境要求
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js >= 18
+- npm >= 8
 
-Follow these steps:
+### 本地开发
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# 克隆项目
 git clone <YOUR_GIT_URL>
+cd markdown-diff-highlighter
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 安装依赖
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 启动开发服务器
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+访问 `http://localhost:8080` 查看应用。
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 构建部署
 
-**Use GitHub Codespaces**
+```bash
+# 构建生产版本
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# 预览构建结果
+npm run preview
+```
 
-## What technologies are used for this project?
+## 📚 使用指南
 
-This project is built with:
+### 1. 查看文档变更
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- 在首页可以看到所有变更的文档列表
+- 点击任意文档可查看详细的差异高亮
+- 支持统一视图和分屏对比两种模式
 
-## How can I deploy this project?
+### 2. 交互式控制
 
-Simply open [Lovable](https://lovable.dev/projects/2c43caa7-3c27-4bc0-8faa-5850fac45851) and click on Share -> Publish.
+- 使用右侧控制面板可以切换显示不同类型的变更
+- 点击高亮区域可查看详细的变更信息
+- 支持快速定位和导航
 
-## Can I connect a custom domain to my Lovable project?
+### 3. 自定义设置
 
-Yes, you can!
+- 在设置页面可以配置主题、视图模式等选项
+- 所有设置会自动保存，下次访问时生效
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🎯 功能演示
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### 高亮类型
+
+- **🟢 新增内容** - 绿色背景和左边框，标识新加入的内容
+- **🔴 删除内容** - 红色背景和删除线，标识被移除的内容  
+- **🟡 修改内容** - 黄色背景，标识被修改的内容
+
+### 交互功能
+
+- 悬停高亮区域显示工具提示
+- 点击高亮区域显示详细变更信息
+- 支持键盘导航和快捷键操作
+
+## 🔧 技术架构
+
+### 设计系统
+
+项目采用严格的设计系统，所有颜色、间距、字体都通过CSS变量统一管理：
+
+```css
+:root {
+  --diff-added: 142 76% 36%;
+  --diff-removed: 0 84% 60%;  
+  --diff-modified: 48 96% 53%;
+  /* ... */
+}
+```
+
+### 组件架构
+
+- **DiffHighlighter** - 核心高亮组件
+- **DiffViewer** - 差异查看器
+- **DiffControls** - 交互控制面板
+- **DiffSummary** - 变更摘要
+
+### 状态管理
+
+使用Zustand进行客户端状态管理，TanStack Query处理服务器状态：
+
+```typescript
+const useDiffStore = create<Store>()(
+  devtools(
+    persist(
+      immer((set) => ({...})),
+      { name: 'diff-store' }
+    )
+  )
+);
+```
+
+## 🎨 设计理念
+
+### 极简主义
+
+采用Next.js风格的黑白简洁设计，突出内容本身，减少视觉干扰。
+
+### 无障碍性
+
+- 完整的键盘导航支持
+- 合适的颜色对比度
+- 语义化HTML结构
+- 屏幕阅读器友好
+
+### 响应式设计
+
+移动优先的设计策略，在所有设备上都能完美展示。
+
+## 📈 路线图
+
+- [ ] **v1.1** - 支持更多文件格式(.txt, .json等)
+- [ ] **v1.2** - 增加变更统计和趋势分析
+- [ ] **v1.3** - 支持多仓库对比
+- [ ] **v2.0** - 集成更多Git托管平台
+
+## 🤝 贡献指南
+
+欢迎提交Issue和Pull Request！请遵循以下规范：
+
+1. Fork项目并创建特性分支
+2. 遵循TypeScript和ESLint规范
+3. 编写清晰的提交信息
+4. 提交前运行测试
+
+## 📄 许可证
+
+MIT License - 详见 [LICENSE](LICENSE) 文件
+
+## 🙏 致谢
+
+- 感谢所有开源项目的贡献者
+- 特别感谢Git提供的强大diff功能
+- 设计灵感来源于GitHub和VS Code
+
+---
+
+**如果这个项目对您有帮助，请给一个⭐️！**
