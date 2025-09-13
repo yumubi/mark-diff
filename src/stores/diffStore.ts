@@ -100,6 +100,11 @@ export const useDiffStore = create<DiffStore>()(
           visibleTypes: Array.from(state.visibleTypes),
           viewMode: state.viewMode,
         }),
+        merge: (persistedState: any, currentState) => ({
+          ...currentState,
+          ...(persistedState || {}),
+          visibleTypes: new Set(persistedState?.visibleTypes || ['added', 'removed', 'modified']),
+        }),
       }
     ),
     { name: 'diff-store' }

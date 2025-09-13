@@ -8,14 +8,6 @@ import Commits from './pages/Commits';
 import Settings from './pages/Settings';
 import NotFound from './pages/NotFound';
 
-// Initialize MSW in development
-if (import.meta.env.DEV) {
-  import('./mocks/browser').then(({ worker }) => {
-    worker.start({
-      onUnhandledRequest: 'bypass',
-    });
-  });
-}
 
 const queryClient = new QueryClient({
   defaultOptions: {
